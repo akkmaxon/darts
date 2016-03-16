@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+$small_height: 480px;
+$medium_height: 640px;
+$large_height: 1024px;
+
+body {
+  background-color: #210b0b;
+}
+main {
+  background: url('bg.jpg') no-repeat;
+  background-size: contain;
+  height: $large_height;
+  width: $large_height * 0.66;
+  margin: auto;
+}
