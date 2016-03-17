@@ -4,7 +4,7 @@ class DartsControllerTest < ActionController::TestCase
   test "should get home" do
     get :home
     assert_response :success
-    assert_select "a[href=?]", video_online_path
+    assert_select "a[href=?]", darts_online_path
     assert_select "a[href=?]", competitions_path
     assert_select "a[href=?]", resources_path
     assert_select "a[href=?]", contacts_path
@@ -12,7 +12,7 @@ class DartsControllerTest < ActionController::TestCase
   end
 
   test "should get video_online" do
-    get :video_online
+    get :darts_online
     assert_response :success
   end
   

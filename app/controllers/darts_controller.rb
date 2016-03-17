@@ -3,7 +3,7 @@ class DartsController < ApplicationController
   def home
   end
 
-  def video_online
+  def darts_online
   end
 
   def competitions

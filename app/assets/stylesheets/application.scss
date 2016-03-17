@@ -13,17 +13,80 @@
  *= require_tree .
  *= require_self
  */
-$small_height: 480px;
-$medium_height: 640px;
-$large_height: 1024px;
+
+$heights: 400px 500px 600px 700px 800px 900px 1000px 1100px 1200px;
 
 body {
   background-color: #210b0b;
 }
-main {
-  background: url('bg.jpg') no-repeat;
+
+main#home {
+  background: url('bg.jpg') top left no-repeat;
   background-size: contain;
-  height: $large_height;
-  width: $large_height * 0.66;
   margin: auto;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  transition: all .3s linear;
+  &:hover {
+    text-shadow: 0 0 5px;
+  }
+}
+
+.on_black {
+  color: white;
+}
+
+.on_white {
+  color: black;
+}
+
+
+@each $height in $heights {
+  @media(min-height: $height) {
+    @media(max-width: $height) {
+      main {
+	height: $height;
+	width: $height * 0.66;
+	a {
+	  font-size: $height * 0.04;
+	}
+
+	#apps {
+	  top: $height * 0.45;
+	  left: $height * 0.2;
+	  transform: rotate(70deg);
+	}
+
+	#videos {
+	  top: $height * 0.47;
+	  left: $height * 0.1;
+	  transform: rotate(52deg);
+	}
+
+	#competitions {
+	  top: $height * 0.52;
+	  left: $height * 0.04;
+	  transform: rotate(33deg);
+	}
+
+	#resources {
+	  top: $height * 0.6;
+	  left: $height * 0.06;
+	  transform: rotate(15deg);
+	}
+
+	#my_contacts {
+	  top: $height * 0.65;
+	  left: $height * 0.06;
+	}
+      }
+    }
+    @media(min-width: $height) {
+      //styles for desktop
+    }
+  }
 }
