@@ -1,5 +1,9 @@
 <% unless controller.action_name == 'home' %>
-  <header>
-    <h1>Super puper header</h1>
+  <header id='mobile-nav'>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li id='title'><span><%= controller.action_name.capitalize %></span></li>
+      <li id='menu'><%= link_to 'Menu', '#' %></li>
+    </ul>
   </header>
 <% end %>

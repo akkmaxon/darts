@@ -17,17 +17,54 @@
 $heights: 400px 500px 600px 700px 800px 900px 1000px 1100px 1200px;
 
 body {
-  background-color: #210b0b;
+  margin: 0;
 }
 
-main#home {
-  background: url('bg.jpg') top left no-repeat;
-  background-size: contain;
+main {
   margin: auto;
+  h1 {
+    text-align: center;
+  }
+}
+
+#home {
+  background: radial-gradient(circle, white, black);
+  main {
+    background: url('bg.jpg') top left no-repeat;
+    background-size: contain;
+  }
+}
+
+#darts_online {
+  background-color: #2c0606;
+  main {
+    h1 {
+      color: white;
+    }
+  }
+}
+
+#competitions {
+  background-color: white;
+  main {
+  }
+}
+
+#resources {
+  background-color: white;
+  main {
+  }
+}
+
+#contacts {
+  background-color: white;
+  main {
+  }
 }
 
 a {
   text-decoration: none;
+  outline: none;
   position: relative;
   display: block;
   transition: all .3s linear;
@@ -44,49 +81,86 @@ a {
   color: black;
 }
 
+#mobile-nav {
+  display: none;
+}
+
 
 @each $height in $heights {
   @media(min-height: $height) {
     @media(max-width: $height) {
-      main {
+      a, #mobile-nav li {
+	font-size: $height * 0.04;
+      }
+      h1 {
+	font-size: $height * 0.06;
+      }
+      #video_frame {
+	border: 1px solid white;
+	margin: auto;
+	width: 80%;
+	height: $height / 3;
+      }
+      #mobile-nav {
+	background: #074517;
+	display: block;
+	ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  li {
+	    float: left;
+	    width: 25%;
+	    * {
+	      display: block;
+	      color: white;
+	      padding: 15px;
+	    }
+	  }
+	  #title {
+	    width: 50%;
+	    text-align: center;
+	  }
+	  #menu {
+	    float: right;
+	    text-align: right;
+	  }
+	}
+      }
+      #home main {
 	height: $height;
 	width: $height * 0.66;
-	a {
-	  font-size: $height * 0.04;
-	}
 
-	#apps {
+	#apps_link {
 	  top: $height * 0.45;
 	  left: $height * 0.2;
 	  transform: rotate(70deg);
 	}
 
-	#videos {
+	#videos_link {
 	  top: $height * 0.47;
 	  left: $height * 0.1;
 	  transform: rotate(52deg);
 	}
 
-	#competitions {
+	#competitions_link {
 	  top: $height * 0.52;
 	  left: $height * 0.04;
 	  transform: rotate(33deg);
 	}
 
-	#resources {
+	#resources_link {
 	  top: $height * 0.6;
 	  left: $height * 0.06;
 	  transform: rotate(15deg);
 	}
 
-	#my_contacts {
+	#my_contacts_link {
 	  top: $height * 0.65;
 	  left: $height * 0.06;
 	}
       }
-    }
-    @media(min-width: $height) {
-      //styles for desktop
     }
   }
 }
