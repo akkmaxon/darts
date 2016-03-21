@@ -14,7 +14,7 @@
  *= require_self
  */
 
-$heights: 400px 500px 600px 700px 800px 900px 1000px 1100px 1200px;
+$heights: 240px 320px 480px 540px 600px 640px 720px 768px 800px 854px 900px 960px 1024px 1080px 1280px 1136px 1334px 1440px 1600px 1920px 2560px; 
 
 body {
   margin: 0;
@@ -29,10 +29,6 @@ main {
 
 #home {
   background: radial-gradient(circle, white, black);
-  main {
-    background: url('bg.jpg') top left no-repeat;
-    background-size: contain;
-  }
 }
 
 #darts_online {
@@ -81,27 +77,66 @@ a {
   color: black;
 }
 
-#mobile-nav {
-  display: none;
-}
-
 
 @each $height in $heights {
   @media(min-height: $height) {
+    a, #mobile_nav li {
+      font-size: $height * 0.04;
+    }
+    h1 {
+      font-size: $height * 0.06;
+    }
+    /* desktop view */
+    #mobile_nav {
+      display: none;
+    }
+    #home main {
+      background: url('desktop_bg.jpg') top left no-repeat; 
+      background-size: contain;
+      height: $height;
+      width: $height * 1.78;
+
+      #apps_link {
+	top: $height * -0.13;
+	left: $height * -0.13;
+	transform: rotate(-35deg);
+      }
+
+      #videos_link {
+	top: $height * -0.14;
+	left: $height * 0.35;
+	transform: rotate(-18deg);
+      }
+
+      #competitions_link {
+	top: $height * 0.006;
+	left: $height * 0.76;
+      }
+
+      #resources_link {
+	top: $height * 0.28;
+	left: $height * 1.2;
+	transform: rotate(18deg);
+      }
+
+      #my_contacts_link {
+	top: $height * 0.62;
+	left: $height * 1.44;
+	transform: rotate(35deg);
+      }
+    }
+    #video_frame {
+      border: 1px solid white;
+      margin: auto;
+      width: 80%;
+      height: $height / 3;
+    }
+
+
+    
+    /* mobile view */
     @media(max-width: $height) {
-      a, #mobile-nav li {
-	font-size: $height * 0.04;
-      }
-      h1 {
-	font-size: $height * 0.06;
-      }
-      #video_frame {
-	border: 1px solid white;
-	margin: auto;
-	width: 80%;
-	height: $height / 3;
-      }
-      #mobile-nav {
+      #mobile_nav {
 	background: #074517;
 	display: block;
 	ul {
@@ -129,36 +164,39 @@ a {
 	}
       }
       #home main {
+	background: url('mobile_bg.jpg') top left no-repeat;
+	background-size: contain;
 	height: $height;
-	width: $height * 0.66;
+	width: $height / 1.78;
 
 	#apps_link {
 	  top: $height * 0.45;
-	  left: $height * 0.2;
+	  left: $height * 0.17;
 	  transform: rotate(70deg);
 	}
 
 	#videos_link {
 	  top: $height * 0.47;
-	  left: $height * 0.1;
+	  left: $height * 0.07;
 	  transform: rotate(52deg);
 	}
 
 	#competitions_link {
-	  top: $height * 0.52;
-	  left: $height * 0.04;
+	  top: $height * 0.535;
+	  left: $height * 0.02;
 	  transform: rotate(33deg);
 	}
 
 	#resources_link {
 	  top: $height * 0.6;
-	  left: $height * 0.06;
+	  left: $height * 0.04;
 	  transform: rotate(15deg);
 	}
 
 	#my_contacts_link {
-	  top: $height * 0.65;
-	  left: $height * 0.06;
+	  top: $height * 0.64;
+	  left: $height * 0.05;
+	  transform: none;
 	}
       }
     }
