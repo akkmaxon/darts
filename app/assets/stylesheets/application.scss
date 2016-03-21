@@ -20,43 +20,7 @@ body {
   margin: 0;
 }
 
-main {
-  margin: auto;
-  h1 {
-    text-align: center;
-  }
-}
 
-#home {
-  background: radial-gradient(circle, white, black);
-}
-
-#darts_online {
-  background-color: #2c0606;
-  main {
-    h1 {
-      color: white;
-    }
-  }
-}
-
-#competitions {
-  background-color: white;
-  main {
-  }
-}
-
-#resources {
-  background-color: white;
-  main {
-  }
-}
-
-#contacts {
-  background-color: white;
-  main {
-  }
-}
 
 a {
   text-decoration: none;
@@ -86,11 +50,20 @@ a {
     h1 {
       font-size: $height * 0.06;
     }
+    body {
+      background: radial-gradient(circle, white, black);
+    }
+    #main_nav, main {
+      margin: auto;
+      h1 {
+	text-align: center;
+      }
+    }
     /* desktop view */
     #mobile_nav {
       display: none;
     }
-    #home main {
+    #main_nav {
       background: url('desktop_bg.jpg') top left no-repeat; 
       background-size: contain;
       height: $height;
@@ -163,7 +136,7 @@ a {
 	  }
 	}
       }
-      #home main {
+      #home #main_nav {
 	background: url('mobile_bg.jpg') top left no-repeat;
 	background-size: contain;
 	height: $height;
@@ -197,6 +170,38 @@ a {
 	  top: $height * 0.64;
 	  left: $height * 0.05;
 	  transform: none;
+	}
+      }
+      #darts_online, #competitions, #resources, #contacts {
+	#main_nav {
+	  display: none;
+	}
+	background: none;
+      }
+      #darts_online {
+	background-color: #2c0606;
+	main {
+	  h1 {
+	    color: white;
+	  }
+	}
+      }
+
+      #competitions {
+	background-color: white;
+	main {
+	}
+      }
+
+      #resources {
+	background-color: white;
+	main {
+	}
+      }
+
+      #contacts {
+	background-color: white;
+	main {
 	}
       }
     }

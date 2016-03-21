@@ -8,6 +8,9 @@
 </head>
 <body id="<%= controller.action_name %>">
 <%= render 'layouts/header' %>
+<% unless controller.action_name == 'home' %>
+  <%= render 'layouts/main_nav' %>
+<% end %>
 <main>
   <%= yield %>
 </main>
